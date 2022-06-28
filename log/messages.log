@@ -1,0 +1,13 @@
+ItemID: 1 | Status: NEW | Quantity: 100 | Timestamp: 1647341755
+ItemID: 2 | Status: NEW | Quantity: 200 | Timestamp: 1647341851
+ItemID: 3 | Status: NEW | Quantity: 20 | Timestamp: 1647341952
+ItemID: 1 | Status: IN | Quantity: 20 | Timestamp: 1647341958
+ItemID: 4 | Status: NEW | Quantity: 20 | Timestamp: 1647342273
+ItemID: 5 | Status: NEW | Quantity: 500 | Timestamp: 1647342323
+ItemID: 6 | Status: NEW | Quantity: 500 | Timestamp: 1647342349
+ItemID: 7 | Status: NEW | Quantity: 500 | Timestamp: 1647342359
+ItemID: 3 | Status: IN | Quantity: 50 | Timestamp: 1647342389
+ItemID: 5 | Status: IN | Quantity: 100 | Timestamp: 1647342408
+ItemID: 7 | Status: OUT | Quantity: 400 | Timestamp: 1647342424
+ItemID: 5 | Status: OUT | Quantity: 400 | Timestamp: 1647342435
+ItemID: 0 | Status: ERR | Quantity: 0 | Timestamp: 1656316627
