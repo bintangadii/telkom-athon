@@ -54,7 +54,7 @@ runProgram items messages = do
                     else makeLogMessage (extractedItem{storage = amount}) "IN"
 
             parseLogMessage logMessage
-            emptyPrompt <- prompt "Press enter to continue."
+            emptyPrompt <- prompt "Tekan Enter untuk melanjutkan."
             runProgram newRestockedItems messages
         "c" -> do
             putStrLn "You're about to take out some item: "
