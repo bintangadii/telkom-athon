@@ -8,10 +8,13 @@ import System.IO (hFlush, stdout)
 
 data LogItem
     = LogItem
-        { itemId :: Int
-        , itemName :: String
-        , storage :: Int
-        , description :: String
+        { sto :: Int
+        , noassset :: String
+        , jenis :: Int
+        , luastanah :: String
+        , tanggalterbit :: String
+        , tanggalberakhir :: String
+        , jangkawaktu :: Int
         }
     | UnknownItem
     deriving (Show, Eq)
