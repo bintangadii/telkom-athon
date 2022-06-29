@@ -13,17 +13,17 @@ runProgram items messages = do
     putStrLn "\n\n\n=============== Eye on Props ==============="
     putStrLn $ replicate 58 '='
     putStrLn $ showItem items
-    putStrLn "(a) Show all item  (b) Restock item  (c) Take item  (d) Add new item  (e) Exit program"
-    choice <- prompt "Input choice: "
+    putStrLn "(a) Tampilkan seluruh data  (b) Update masa berlaku (c) Hapus asset  (d) Tambahkan asset  (e) Keluar"
+    choice <- prompt "Pilih action: "
     case choice of
         "a" -> do
             putStrLn $ showAllItem items
-            empty <- prompt "Press enter to go back"
+            empty <- prompt "Tekan Enter untuk kembali"
             runProgram items messages
         "b" -> do
-            putStrLn "You're about to restock some item: "
-            -- Insert ItemID
-            putStr "Insert ItemID: "
+            putStrLn "Perhatian! Pastikan masa berlaku sudah sesuai: "
+            -- Masukkan AssetID
+            putStr "Masukkan AssetID: "
             hFlush stdout
             choice <- do
                 result <- runMaybeT maybeReadInt
@@ -31,7 +31,7 @@ runProgram items messages = do
                     (Just a) -> return a
                     Nothing -> return 0
             -- Insert Amount
-            putStr "Insert amount to restock: "
+            putStr "Input tambahan masa berlaku: "
             hFlush stdout
             amount <- do
                 result <- runMaybeT maybeReadInt
@@ -58,8 +58,8 @@ runProgram items messages = do
             runProgram newRestockedItems messages
         "c" -> do
             putStrLn "You're about to take out some item: "
-            -- Insert ItemID
-            putStr "Insert ItemID: "
+            -- Masukkan AssetID
+            putStr "Masukkan AssetID: "
             hFlush stdout
             choice <- do
                 result <- runMaybeT maybeReadInt
