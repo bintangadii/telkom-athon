@@ -1,4 +1,4 @@
-{-# Warehouse Logging Application
+# Warehouse Logging Application
 
 <img src="picture/user_interface.png" alt="User interface" style="width: 80%;"/>
 
@@ -15,4 +15,3 @@ A warehouse logging application to record all in and outs of goods. Created usin
 2. Open terminal, and change directory to this project
 3. Run `$ cabal build`
 4. After it successfully built, run this project with `$ cabal run`
-5. -}
