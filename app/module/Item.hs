@@ -8,7 +8,7 @@ import System.IO (hFlush, stdout)
 
 data LogItem
     = LogItem
-        { sto :: Int
+        { sto :: String
         , noassset :: String
         , jenis :: Int
         , luastanah :: String

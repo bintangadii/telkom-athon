@@ -13,7 +13,7 @@ runProgram items messages = do
     putStrLn "\n\n\n=============== Eye on Props ==============="
     putStrLn $ replicate 58 '='
     putStrLn $ showItem items
-    putStrLn "(a) Tampilkan seluruh data  (b) Update masa berlaku (c) Hapus asset  (d) Tambahkan asset  (e) Keluar"
+    putStrLn "(a) Tampilkan seluruh data  (b) Update masa berlaku (c) Hapus asset (d) Tambahkan asset  (e) Keluar"
     choice <- prompt "Pilih action: "
     case choice of
         "a" -> do
@@ -57,7 +57,7 @@ runProgram items messages = do
             emptyPrompt <- prompt "Tekan Enter untuk melanjutkan."
             runProgram newRestockedItems messages
         "c" -> do
-            putStrLn "You're about to take out some item: "
+            putStrLn "Asset akan dihapus, pastikan Asset ID sesuai!"
             -- Masukkan AssetID
             putStr "Masukkan AssetID: "
             hFlush stdout
@@ -93,11 +93,11 @@ runProgram items messages = do
                             then makeLogMessage (extractedItem{storage = 0}) "ERR"
                             else makeLogMessage (extractedItem{storage = amount}) "OUT"
             parseLogMessage logMessage
-            emptyPrompt <- prompt "Press enter to continue."
+            emptyPrompt <- prompt "Tekan Enter untuk melanjutkan."
             runProgram updatedItems messages
         "d" -> do
-            putStrLn "\nYou're about to add new item into the inventory, please fill the information below: "
-            name <- prompt "Item name: "
+            putStrLn "\nAsset baru akan ditambahkan, Silakan isikan informasi berikut: "
+            name <- prompt "No: "
             putStr "Quantity: "
             hFlush stdout
             storage <- do
@@ -105,7 +105,7 @@ runProgram items messages = do
                 case result of
                     (Just a) -> return a
                     Nothing -> return 0
-            description <- prompt "Description: "
+            description <- prompt "Keterangan: "
             newItems <- addNewItem items name storage description
             parseLogItem newItems
             logMessage <- makeLogMessage (last newItems) "NEW"
@@ -129,30 +129,42 @@ showItem items = showItemFunc (length items) (take 2 items)
         _ -> "...and " ++ show (count - 2) ++ " more." ++ "\n" ++ replicate 58 '='
     showItemFunc count (item : rest) =
         "ID: " ++ show (itemId item)
-            ++ "\nName: "
+            ++ "\nSTO: "
             ++ itemName item
-            ++ "\nStorage: "
+            ++ "\nNo Sertifikat: "
             ++ show (storage item)
-            ++ "\nDescription: "
+            ++ "\nJenis Sertifikat: "
             ++ description item
-            ++ "\n"
-            ++ replicate 29 '-'
-            ++ "\n"
+            ++ "\nLuas Tanah: "
+            ++ tanggal terbit '-'
+            ++ "\nTanggal Terbit: "
+            ++ tanggal berakhir
+            ++ "\nTanggal Berakhir: "
+            ++ jangka waktu
+            ++ "\nJangka Waktu: "
+            ++ keterangan
+            ++ "n\Keterangan: "
             ++ showItemFunc count rest
 
 showAllItem :: [LogItem] -> String
 showAllItem [] = replicate 58 '='
 showAllItem (item : rest) =
     "ID: " ++ show (itemId item)
-        ++ "\nName: "
+        ++ "\nSTO: "
         ++ itemName item
-        ++ "\nStorage: "
+        ++ "\nNo Sertifikat: "
         ++ show (storage item)
-        ++ "\nDescription: "
+        ++ "\nJenis Sertifikat: "
         ++ description item
-        ++ "\n"
-        ++ replicate 29 '-'
-        ++ "\n"
+        ++ "\nLuas Tanah: "
+        ++ tanggal terbit '-'
+        ++ "\nTanggal Terbit: "
+        ++ tanggal berakhir
+        ++ "\nTanggal Berakhir: "
+        ++ jangka waktu
+        ++ "\nJangka Waktu: "
+        ++ keterangan
+        ++ "n\Keterangan: "
         ++ showAllItem rest
 
 main :: IO ()
