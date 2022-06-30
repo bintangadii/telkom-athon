@@ -1,0 +1,63 @@
+Select menu: b
+
+=====================================
+Anda akan melakukan update data asset
+List of STO:
+1. MDO
+2. KTG
+3. TNT
+4. SFI
+5. THN
+.
+.
+.
+
+=====================================
+Select STO: 1
+
+=====================================
+List of Asset
+=====================================
+ID			: 1-1
+STO			: MDO
+No Sertifikat	: 18-01-05-01-3-00110
+Jenis Sertifikat	: HGB
+Luas Tanah		: 2654
+Tanggal Terbit	: 23/12/1994
+Tanggal Berakhir	: 23/12/2024
+Jangka Waktu	: 30 tahun
+Keterangan		: Masih Berlaku
+
+ID			: 1-2
+STO			: MDO
+No Sertifikat	: 18-01-05-01-3-00110
+Jenis Sertifikat	: HGB
+Luas Tanah		: 2654
+Tanggal Terbit	: 23/12/1994
+Tanggal Berakhir	: 23/12/2004
+Jangka Waktu	: 10 tahun
+Keterangan		: Expired
+
+.
+.
+.
+
+=====================================
+Select ID			: 1-2
+=====================================
+Silakan isikan tanggal, lama perpanjangan, dan keterangan
+Update Tanggal Berlaku	: 23/12/2024
+Tambahan Waktu		: 20
+Keterangan			: Masih Berlaku
+=====================================
+ID			: 1-2
+STO			: MDO
+No Sertifikat	: 18-01-05-01-3-00110
+Jenis Sertifikat	: HGB
+Luas Tanah		: 2654
+Tanggal Terbit	: 23/12/1994
+Tanggal Berakhir	: 23/12/2024
+Jangka Waktu	: 30 tahun
+Keterangan		: Masih Berlaku
+=====================================
+Data berhasil diupdate! Silakan tekan Enter untuk melanjutkan.

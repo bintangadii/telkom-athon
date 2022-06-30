@@ -1,0 +1,29 @@
+Select menu: c
+
+=====================================
+Anda akan menambahkan asset
+List of STO:
+1. MDO
+2. KTG
+3. TNT
+4. SFI
+5. THN
+.
+.
+.
+
+=====================================
+Select STO: 1
+=====================================
+Silakan isikan data di bawah ini
+ID			: 
+STO			: 
+No Sertifikat	: 
+Jenis Sertifikat	: 
+Luas Tanah		: 
+Tanggal Terbit	: 
+Tanggal Berakhir	: 
+Jangka Waktu	:  
+Keterangan		:  
+=====================================
+Data sukses ditambahkan! Silakan tekan Enter untuk melanjutkan.

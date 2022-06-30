@@ -1,0 +1,9 @@
+===================== Eye on Props =======================
+==========================================================
+
+a) Show all STO
+b) Update
+c) Add new asset
+d) Remove asset
+e) Show expired only
+f) Exit

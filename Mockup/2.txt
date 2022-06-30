@@ -1,0 +1,39 @@
+===================== Eye on Props =======================
+==========================================================
+
+a) Show all STO
+b) Update
+c) Add new asset
+d) Remove asset
+e) Show expired only
+f) Exit
+
+Select menu: a
+
+List of STO:
+1. MDO
+2. KTG
+3. TNT
+4. SFI
+
+Select STO: a
+
+List of Asset
+
+STO: MDO
+No Sertifikat: 18-01-05-01-3-00110
+Jenis Sertifikat: HGB
+Luas Tanah: 2654
+Tanggal Terbit: 23/12/1994
+Tanggal Berakhir: 23/12/2024
+Jangka Waktu: 30 tahun
+Keterangan: Masih Berlaku
+
+STO: MDO
+No Sertifikat: 18-01-05-01-3-00110
+Jenis Sertifikat: HGB
+Luas Tanah: 2654
+Tanggal Terbit: 23/12/1994
+Tanggal Berakhir: 23/12/2024
+Jangka Waktu: 30 tahun
+Keterangan: Masih Berlaku

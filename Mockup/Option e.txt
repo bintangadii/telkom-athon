@@ -1,0 +1,30 @@
+Select menu: e
+
+List asset yang telah expired
+
+ID			:1-1
+STO			: MDO
+No Sertifikat	: 18-01-05-01-3-00110
+Jenis Sertifikat	: HGB
+Luas Tanah		: 2654
+Tanggal Terbit	: 23/12/1994
+Tanggal Berakhir	: 23/12/2004
+Jangka Waktu	: 30 tahun
+Keterangan		: Expired
+
+ID			: 1-2
+STO			: MDO
+No Sertifikat	: 18-01-05-01-3-00110
+Jenis Sertifikat	: HGB
+Luas Tanah		: 2654
+Tanggal Terbit	: 23/12/1994
+Tanggal Berakhir	: 23/12/2021
+Jangka Waktu	: 30 tahun
+Keterangan		: Expired
+
+.
+.
+.
+
+=====================================
+Silakan tekan Enter untuk kembali.

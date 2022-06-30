@@ -7,13 +7,10 @@ import Module.Item
 
 data LogMessage
     = LogMessage
-        { sto :: Int
-        , noassset :: String
-        , jenis :: Int
-        , luastanah :: String
-        , tanggalterbit :: String
-        , tanggalberakhir :: String
-        , jangkawaktu :: Int
+        { item :: Int
+        , quantity :: Int
+        , timestamp :: Int
+        , status :: Status
         }
     | Unknown
     deriving (Show)

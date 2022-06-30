@@ -6,24 +6,24 @@ import Data.List
 import Helper (MaybeT, liftMaybeT, maybeReadInt, prompt, runMaybeT)
 import Module.Item (LogItem (UnknownItem), addNewItem, description, itemId, itemName, parseItem, parseLogItem, restockItem, storage, takeItem)
 import Module.Message (LogMessage, makeLogMessage, parseLogMessage)
+import Module.STO (LogSTO (UnknownSTO), stoId, stoName)
 import System.IO (hFlush, stdout)
 
 runProgram :: [LogItem] -> [LogMessage] -> IO ()
 runProgram items messages = do
-    putStrLn "\n\n\n=============== Eye on Props ==============="
+    putStrLn "\n\n\n====================== Eye on Props ======================"
     putStrLn $ replicate 58 '='
-    putStrLn $ showItem items
-    putStrLn "(a) Tampilkan seluruh data  (b) Update masa berlaku (c) Hapus asset (d) Tambahkan asset  (e) Keluar"
-    choice <- prompt "Pilih action: "
+    putStrLn "(a) Show all STO  \n(b) Update Asset  \n(c) Take item  \n(d) Add new item  \n(e) Remove Asset \n(f) Exit"
+    choice <- prompt "Select menu: "
     case choice of
         "a" -> do
             putStrLn $ showAllItem items
-            empty <- prompt "Tekan Enter untuk kembali"
+            empty <- prompt "Press enter to go back"
             runProgram items messages
         "b" -> do
-            putStrLn "Perhatian! Pastikan masa berlaku sudah sesuai: "
-            -- Masukkan AssetID
-            putStr "Masukkan AssetID: "
+            putStrLn "You're about to restock some item: "
+            -- Insert ItemID
+            putStr "Insert ItemID: "
             hFlush stdout
             choice <- do
                 result <- runMaybeT maybeReadInt
@@ -31,7 +31,7 @@ runProgram items messages = do
                     (Just a) -> return a
                     Nothing -> return 0
             -- Insert Amount
-            putStr "Input tambahan masa berlaku: "
+            putStr "Insert amount to restock: "
             hFlush stdout
             amount <- do
                 result <- runMaybeT maybeReadInt
@@ -54,12 +54,12 @@ runProgram items messages = do
                     else makeLogMessage (extractedItem{storage = amount}) "IN"
 
             parseLogMessage logMessage
-            emptyPrompt <- prompt "Tekan Enter untuk melanjutkan."
+            emptyPrompt <- prompt "Press enter to continue."
             runProgram newRestockedItems messages
         "c" -> do
-            putStrLn "Asset akan dihapus, pastikan Asset ID sesuai!"
-            -- Masukkan AssetID
-            putStr "Masukkan AssetID: "
+            putStrLn "You're about to take out some item: "
+            -- Insert ItemID
+            putStr "Insert ItemID: "
             hFlush stdout
             choice <- do
                 result <- runMaybeT maybeReadInt
@@ -93,11 +93,11 @@ runProgram items messages = do
                             then makeLogMessage (extractedItem{storage = 0}) "ERR"
                             else makeLogMessage (extractedItem{storage = amount}) "OUT"
             parseLogMessage logMessage
-            emptyPrompt <- prompt "Tekan Enter untuk melanjutkan."
+            emptyPrompt <- prompt "Press enter to continue."
             runProgram updatedItems messages
         "d" -> do
-            putStrLn "\nAsset baru akan ditambahkan, Silakan isikan informasi berikut: "
-            name <- prompt "No: "
+            putStrLn "\nYou're about to add new item into the inventory, please fill the information below: "
+            name <- prompt "Item name: "
             putStr "Quantity: "
             hFlush stdout
             storage <- do
@@ -105,7 +105,7 @@ runProgram items messages = do
                 case result of
                     (Just a) -> return a
                     Nothing -> return 0
-            description <- prompt "Keterangan: "
+            description <- prompt "Description: "
             newItems <- addNewItem items name storage description
             parseLogItem newItems
             logMessage <- makeLogMessage (last newItems) "NEW"
@@ -129,45 +129,63 @@ showItem items = showItemFunc (length items) (take 2 items)
         _ -> "...and " ++ show (count - 2) ++ " more." ++ "\n" ++ replicate 58 '='
     showItemFunc count (item : rest) =
         "ID: " ++ show (itemId item)
-            ++ "\nSTO: "
+            ++ "\nName: "
             ++ itemName item
-            ++ "\nNo Sertifikat: "
+            ++ "\nStorage: "
             ++ show (storage item)
-            ++ "\nJenis Sertifikat: "
+            ++ "\nDescription: "
             ++ description item
-            ++ "\nLuas Tanah: "
-            ++ tanggal terbit '-'
-            ++ "\nTanggal Terbit: "
-            ++ tanggal berakhir
-            ++ "\nTanggal Berakhir: "
-            ++ jangka waktu
-            ++ "\nJangka Waktu: "
-            ++ keterangan
-            ++ "n\Keterangan: "
+            ++ "\n"
+            ++ replicate 29 '-'
+            ++ "\n"
             ++ showItemFunc count rest
 
+
+showAllItem :: [LogSTO] -> String
+showAllItem [] = replicate 58 '='
+showAllItem (sto : rest) =
+    show (stoId sto)
+        ++ "\n" stoName sto
+        ++ "\n"
+        ++ replicate 29 '-'
+        ++ "\n"
+        ++ showAllItem rest
+
+{-
 showAllItem :: [LogItem] -> String
 showAllItem [] = replicate 58 '='
 showAllItem (item : rest) =
     "ID: " ++ show (itemId item)
-        ++ "\nSTO: "
+        ++ "\nName: "
         ++ itemName item
-        ++ "\nNo Sertifikat: "
+        ++ "\nStorage: "
         ++ show (storage item)
-        ++ "\nJenis Sertifikat: "
+        ++ "\nDescription: "
         ++ description item
-        ++ "\nLuas Tanah: "
-        ++ tanggal terbit '-'
-        ++ "\nTanggal Terbit: "
-        ++ tanggal berakhir
-        ++ "\nTanggal Berakhir: "
-        ++ jangka waktu
-        ++ "\nJangka Waktu: "
-        ++ keterangan
-        ++ "n\Keterangan: "
+        ++ "\n"
+        ++ replicate 29 '-'
+        ++ "\n"
         ++ showAllItem rest
+-}
+
+{-}
+showAllItem :: [LogItem] -> String
+showAllItem [] = replicate 58 '='
+showAllItem (item : rest) =
+    "ID: " ++ show (itemId item)
+        ++ "\nName: "
+        ++ itemName item
+        ++ "\nStorage: "
+        ++ show (storage item)
+        ++ "\nDescription: "
+        ++ description item
+        ++ "\n"
+        ++ replicate 29 '-'
+        ++ "\n"
+        ++ showAllItem rest
+-}
 
 main :: IO ()
 main = do
-    items <- fmap parseItem (readFile "log/items.log")
+    items <- fmap parseItem (readFile "log/sto.log")
     runProgram items []

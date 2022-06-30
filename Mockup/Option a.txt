@@ -1,0 +1,46 @@
+Select menu: a
+
+=====================================
+List of STO:
+1. MDO
+2. KTG
+3. TNT
+4. SFI
+5. THN
+.
+.
+.
+
+=====================================
+Select STO: a
+
+=====================================
+List of Asset
+=====================================
+
+ID			:1-1
+STO			: MDO
+No Sertifikat	: 18-01-05-01-3-00110
+Jenis Sertifikat	: HGB
+Luas Tanah		: 2654
+Tanggal Terbit	: 23/12/1994
+Tanggal Berakhir	: 23/12/2024
+Jangka Waktu	: 30 tahun
+Keterangan		: Masih Berlaku
+
+ID			: 1-2
+STO			: MDO
+No Sertifikat	: 18-01-05-01-3-00110
+Jenis Sertifikat	: HGB
+Luas Tanah		: 2654
+Tanggal Terbit	: 23/12/1994
+Tanggal Berakhir	: 23/12/2024
+Jangka Waktu	: 30 tahun
+Keterangan		: Masih Berlaku
+
+.
+.
+.
+
+=====================================
+Silakan tekan Enter untuk kembali.

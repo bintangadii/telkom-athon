@@ -11,3 +11,5 @@ ItemID: 5 | Status: IN | Quantity: 100 | Timestamp: 1647342408
 ItemID: 7 | Status: OUT | Quantity: 400 | Timestamp: 1647342424
 ItemID: 5 | Status: OUT | Quantity: 400 | Timestamp: 1647342435
 ItemID: 0 | Status: ERR | Quantity: 0 | Timestamp: 1656316627
+ItemID: 2 | Status: IN | Quantity: 500 | Timestamp: 1656478197
+ItemID: 8 | Status: NEW | Quantity: 1000 | Timestamp: 1656492919
